@@ -1,22 +1,26 @@
-import React from "react";
-import Testimonios from "@/components/Testimonio";
-import Servicios from "@/components/Servicios";
 import { Home } from "lucide-react";
+import Servicios from "./components/Servicios";
+import Testimonios from "./components/Testimonios";
 
 const Info = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center mb-6 space-x-4">
-        <Home className="w-8 h-8 text-indigo-600" />
-        <h2 className="text-3xl font-semibold text-gray-800">El Apartamento</h2>
+    <div className="bg-[#0F0F0F] border-t border-[#2A2A2A]">
+      <div className="container mx-auto px-4 py-16 max-w-4xl">
+        <div className="flex flex-col items-center mb-16">
+          <Home className="w-12 h-12 text-[#C49A6C] mb-4" />
+          <h2 className="font-playfair-display text-4xl text-center text-white/90 mb-6">
+            El Refugio Costero
+          </h2>
+          <p className="font-roboto text-xl text-center text-white/80 leading-relaxed">
+            Un espacio recién renovado que combina el encanto rústico gallego con comodidades modernas. 
+            Diseñado para grupos de hasta 6 personas, nuestro apartamento es tu base perfecta para 
+            explorar la mágica Costa da Morte.
+          </p>
+        </div>
+
+        <Servicios />
+        <Testimonios />
       </div>
-
-      <p className="text-lg text-gray-600 mb-8">
-        Recién reformado y diseñado para alojar cómodamente hasta 6 personas, nuestro apartamento es el refugio perfecto para tus vacaciones.
-      </p>
-
-      <Servicios />
-      <Testimonios />
     </div>
   );
 };

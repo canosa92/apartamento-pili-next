@@ -60,12 +60,12 @@ const Gallery = [
      category: 'habitacion 2'
    },
    {
-     src: '/gallery/habitacion3-frente.jpeg',
+     src: '/gallery/habitacion3-centro.jpeg',
      alt: 'Foto de la habitación vista desde enfrente en apartamento de Pili',
      category: 'habitacion 3'
    },
    {
-     src: '/gallery/habitacion3-ventana.jpeg',
+     src: '/gallery/habitacion3-cerca.jpeg',
      alt: 'Foto de la habitación vista desde la ventana en apartamento de Pili',
      category: 'habitacion 3'
    },

@@ -1,88 +1,64 @@
 import React from "react";
-import Lugares from "@/components/Lugares";
-import { MapPin, Camera, Star, Waves } from "lucide-react";
+import Lugares from "./components/Lugares";
+import { MapPin } from "lucide-react";
 
 const Ubicacion = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
-        
+    <div className="min-h-screen bg-[#0F0F0F] border-t border-[#2A2A2A]">
+      <div className="container mx-auto px-4 py-16 max-w-6xl">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-6">
-            Escápate a la Costa da Morte
+          <h1 className="font-playfair-display text-4xl sm:text-5xl text-[#C49A6C] mb-6">
+            Descubre la Costa da Morte
           </h1>
-          <p className="text-lg sm:text-xl text-blue-700 max-w-2xl mx-auto">
-            Vive unas vacaciones inolvidables en nuestro apartamento familiar 🏡🌊
+          <p className="font-roboto text-lg sm:text-xl text-white/80 max-w-2xl mx-auto">
+            Un refugio donde el mar y la tradición se encuentran 🏡🌊
           </p>
         </div>
 
-        {/* Ubicación Perfecta Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 mb-12">
-          <div className="flex items-center mb-4">
-            <MapPin className="w-8 h-8 text-blue-600 mr-3" />
-            <h2 className="text-2xl font-semibold text-gray-800">Ubicación Perfecta</h2>
+        {/* Sección Ubicación */}
+        <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-8 mb-12 hover:border-[#C49A6C]/40 transition-all duration-300">
+          <div className="flex items-center mb-6 space-x-4">
+            <MapPin className="w-8 h-8 text-[#C49A6C]" />
+            <h2 className="font-playfair-display text-3xl text-white/90">Ubicación Privilegiada</h2>
           </div>
-          <p className="text-gray-600 mb-6">
-            Situado en Vimianzo, estarás rodeado de naturaleza, historia y la tranquilidad característica de la Costa da Morte.
+          <p className="font-roboto text-lg text-white/80 leading-relaxed mb-6">
+            En el corazón de Galicia, la Costa da Morte combina naturaleza virgen con una rica herencia cultural. 
+            Nuestro apartamento es tu base ideal para explorar este entorno único declarado Reserva de la Biosfera.
           </p>
-          <ul className="space-y-3">
-            <li className="flex items-center text-gray-700">
-              <Waves className="w-5 h-5 text-blue-500 mr-2" />
-              <span>Playas espectaculares a minutos</span>
-            </li>
-            <li className="flex items-center text-gray-700">
-              <Camera className="w-5 h-5 text-blue-500 mr-2" />
-              <span>Paisajes de ensueño y acantilados</span>
-            </li>
-            <li className="flex items-center text-gray-700">
-              <Star className="w-5 h-5 text-blue-500 mr-2" />
-              <span>Cerca de puntos emblemáticos</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Costa da Morte Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6">La Costa da Morte</h2>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            La Costa da Morte, situada en el noroeste de Galicia, es una región mística y espectacular que combina paisajes naturales imponentes, una rica historia marítima y tradiciones culturales únicas. Su nombre, que significa "Costa de la Muerte," proviene de su reputación histórica por naufragios debido a sus aguas embravecidas y su costa rocosa.
-          </p>
-          <div className="bg-blue-50 rounded-lg p-6">
-            <p className="text-blue-800 italic">
-              "Un lugar donde la naturaleza muestra su cara más salvaje y hermosa, donde cada atardecer es un espectáculo único."
-            </p>
+          
+          {/* Mapa */}
+          <div className="my-8">
+            <iframe
+              className="w-full h-96 rounded-xl border border-[#2A2A2A]"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11610.951007089945!2d-8.999999999999995!3d43.099999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e4e8b9b9b9b9b%3A0xb9b9b9b9b9b9b9b9!2sVimianzo%2C%20A%20Coru%C3%B1a%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1690838400000!5m2!1ses!2ses"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-        </div>
-
-        {/* CTA Final */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
-            Ven a vivir la auténtica esencia gallega
-          </h2>
-          <p className="text-xl mb-8">
-            Somos una familia que comparte su hogar para que puedas descubrir la magia de la Costa da Morte
-          </p>
-          <button className="bg-white text-blue-800 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300">
-            Reserva ahora
-          </button>
+  
         </div>
 
         <Lugares />
 
-        {/* Mapa de Ubicación */}
-        <div className="my-6">
-          <h2 className="text-2xl font-semibold mb-3">📍 Mapa de Ubicación</h2>
-          <iframe
-            className="w-full h-80"
-            src="https://www.google.com/maps/embed?pb=..."
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        {/* CTA */}
+        <div className="text-center bg-[#1A1A1A] border border-[#C49A6C] rounded-2xl p-12 text-white mt-16 hover:border-[#E6D6C4] transition-all duration-300">
+          <h2 className="font-playfair-display text-3xl mb-4">
+            Vive la auténtica esencia gallega
+          </h2>
+          <p className="font-roboto text-xl text-white/80 mb-8">
+            Un espacio creado con amor para que disfrutes de la magia costera
+          </p>
+          <a
+            href="/reservas"
+            className="inline-block font-roboto font-semibold bg-[#C49A6C] hover:bg-[#B08A5C] text-white px-8 py-3 rounded-lg transition-colors duration-300"
+          >
+            Reserva tu estancia
+          </a>
         </div>
       </div>
-    </div>
+</div>
   );
 };
 

@@ -9,51 +9,61 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Galería", href: "/galeria" },
     { name: "Información", href: "/informacion" },
-    { name: "Ubicacion", href: "/ubicacion" },
-    { name: "Contacto", href: "/contacto" }
+    { name: "Ubicación", href: "/ubicacion" },
+    { name: "Reserva", href: "/reservas" }
   ];
 
   return (
-    <nav className="bg-[#c49a6c] text-white p-4 relative">
-      <div className="container mx-auto">
-        <div className="flex justify-between items-center">
-          <h1 className="text-xl font-bold">Apartamento de Pili</h1>
+    <nav className="bg-[#0F0F0F] border-b border-[#2A2A2A] relative">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-20">
+          {/* Título más destacado */}
+          <h1 className="text-3xl xl:text-3xl font-playfair-display font-semibold text-[#e0d5c0] tracking-wide">
+            Apartamento de Pili
+          </h1>
+          
+          {/* Botón del menú móvil más grande */}
           <button
-            className="md:hidden text-2xl focus:outline-none"
+            className="md:hidden text-3xl text-[#C49A6C] focus:outline-none hover:text-[#E6D6C4] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
             ☰
           </button>
-          <ul className="hidden md:flex gap-6 items-center">
+
+          {/* Enlaces de escritorio - Versión potenciada */}
+          <ul className="hidden md:flex gap-10 items-center h-full">
             {navLinks.map((link) => (
-              <li key={link.name}>
-                <a 
-                  href={link.href} 
-                  className="hover:underline transition-colors duration-200"
+              <li key={link.name} className="h-full flex items-center">
+                <a
+                  href={link.href}
+                  className="font-roboto font-medium text-xl text-[#FFFFFF] hover:text-[#C49A6C] transition-all duration-300 relative group h-full flex items-center tracking-wide"
                 >
                   {link.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-[3px] bg-[#C49A6C] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Menú móvil */}
-        <div className={`${menuOpen ? 'block' : 'hidden'} md:hidden`}>
-          <ul className="pt-4 pb-2">
-            {navLinks.map((link) => (
-              <li key={link.name} className="mb-2">
-                <a
-                  href={link.href}
-                  className="block hover:bg-[#b38a5c] py-2 px-4 rounded transition-colors duration-200"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Menú móvil - Versión mejorada */}
+        <div className={`${menuOpen ? 'fixed' : 'hidden'} inset-0 z-50 bg-black/70 md:hidden`}>
+          <div className="bg-[#1A1A1A] border-t border-[#2A2A2A]">
+            <ul className="py-6"> {/* Aumentado el padding */}
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="block  acking-wide font-roboto font-semibold text-lg text-[#FFFFFF] hover:bg-[#2A2A2A] py-4 px-8 transition-colors"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
