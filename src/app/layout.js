@@ -1,21 +1,21 @@
-import { Roboto, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
   weight: ["400", "500", "700"],
 });
 
 const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair-display",
   subsets: ["latin"],
+  variable: "--font-playfair-display",
   weight: ["400", "700"],
 });
 
 export const metadata = {
-  title: "Apartamento de Pili",
+  title: "Apartamento Casa Pili",
   description: "Alojamiento vacacional en la Costa da Morte, Galicia",
 };
 
@@ -23,18 +23,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`${roboto.variable} ${playfairDisplay.variable} antialiased text-white/90`}
+        className={`${inter.variable} ${playfairDisplay.variable} bg-primary text-textLight font-sans antialiased`}
       >
-        {/* Navbar */}
         <Navbar />
-
-        {/* Contenido principal */}
-        <main className="min-h-screen">
-          {children}
-        </main>
-
-        {/* Footer (opcional, puedes añadirlo después) */}
-        {/* <Footer /> */}
+        <main className="min-h-screen text-textMuted">{children}</main>
       </body>
     </html>
   );
