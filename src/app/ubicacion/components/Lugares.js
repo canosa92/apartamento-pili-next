@@ -1,5 +1,5 @@
 import React from "react";
-import lugares from "@/app/data/lugares";
+import places from "@/app/data/places";
 
 const Lugares = () => {
   return (
@@ -8,7 +8,7 @@ const Lugares = () => {
         Tesoros de la Costa
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {Object.keys(lugares).map((categoria, index) => (
+        {Object.keys(places).map((categoria, index) => (
           <div
             key={index}
             className="bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-accent/40 transition-all duration-300"
@@ -17,7 +17,7 @@ const Lugares = () => {
               {categoria.replace(/([A-Z])/g, " $1").toUpperCase()}
             </h4>
             <ul className="font-sans space-y-4">
-              {lugares[categoria].map((lugar, idx) => (
+              {places[categoria].map((lugar, idx) => (
                 <li
                   key={idx}
                   className="text-white/80 hover:text-accent transition-colors duration-200"

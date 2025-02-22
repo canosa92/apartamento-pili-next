@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import navLinks from "../data/navlink"
 
-const Navbar = () => { const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = () => { 
+  
+  
+const [menuOpen, setMenuOpen] = useState(false);
 
-const navLinks = [ { name: "Home", href: "/" }, { name: "Galería", href: "/galeria" }, { name: "Información", href: "/informacion" }, { name: "Ubicación", href: "/ubicacion" }, { name: "Reserva", href: "/reservas" } ];
-
-return ( <nav className="bg-primary border-b border-secondary relative"> <div className="container mx-auto px-6"> <div className="flex justify-between items-center h-20"> {/* Título */} <h1 className="text-3xl font-serif font-semibold text-accent tracking-wide"> Apartamento Casa Pili </h1>
-
-{/* Botón del menú móvil */}
+return ( 
+  <nav className="bg-primary border-b border-secondary relative">
+   <div className="container mx-auto px-6"> 
+    <div className="flex justify-between items-center h-20"> {/* Título */}
+       <h1 className="text-3xl font-serif font-semibold text-accent tracking-wide"> Apartamento Casa Pili 
+       </h1>
+          {/* Botón del menú móvil */}
       <button
         className="md:hidden text-3xl text-accent focus:outline-none hover:text-textMuted transition-colors"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -36,7 +42,7 @@ return ( <nav className="bg-primary border-b border-secondary relative"> <div cl
 
   {/* Menú móvil */}
   <div className={`${menuOpen ? 'fixed' : 'hidden'} inset-0 z-50 bg-black/70 md:hidden transition-opacity`}>  
-    <div className="bg-primary border-t border-secondary shadow-lg transform transition-transform ${menuOpen ? 'translate-y-0' : '-translate-y-full'}`>
+    <div className={`bg-primary border-t border-secondary shadow-lg transform transition-transform ${menuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
       <ul className="py-6">
         {navLinks.map((link) => (
           <li key={link.name}>

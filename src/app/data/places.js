@@ -1,4 +1,4 @@
-const lugares = {
+const places = {
   paisajesNaturales: [
     { title: "Acantilados Escarpados", description: "Cabo Vilán, Cabo Touriñán,Cabo de la Nave" },
     { title: "Playas Vírgenes", description: "Playa de Carnota, Playa de Laxe, Playa de los Muíños ." },
@@ -21,4 +21,4 @@ const lugares = {
     { title: "Museo de la Madera", description: "Museo dedicado a la tradición de la madera en la región."}
   ]}
   
-export default lugares;
+export default places;
