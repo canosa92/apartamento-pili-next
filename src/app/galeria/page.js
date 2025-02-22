@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Menu } from "@headlessui/react";
-import Gallery from "@/app/data/gallery";
+import Gallery from "@/data/gallery";
+
 
 const FilterSelect = ({ categories, selectedCategory, onSelect }) => (
   <Menu as="div" className="relative mb-12 w-full max-w-xs mx-auto">
