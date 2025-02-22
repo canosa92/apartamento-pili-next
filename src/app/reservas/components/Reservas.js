@@ -55,7 +55,7 @@ const Reservas = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-primary border border-gray-700 rounded-2xl shadow-xl hover:border-accent/40 transition-all duration-300">
+    <div className=" bg-gray-800 max-w-2xl mx-auto p-8  border border-gray-700 rounded-2xl shadow-xl hover:border-accent/40 transition-all duration-300">
       <h2 className="font-serif text-3xl text-accent text-center mb-8">
         Consulta Disponibilidad
       </h2>

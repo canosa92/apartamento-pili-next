@@ -1,221 +1,31 @@
-"use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Menu } from "@headlessui/react";
-const Gallery = [
-  {
-    src: '/gallery/baño-centro.jpeg',
-    alt: 'Foto del baño desde el centro en apartamento de Pili',
-    category: 'baño'
+export const metadata = {
+  title: "Galería | Apartamento de Pili - Costa da Morte",
+  description:
+    "Explora nuestra galería de imágenes del Apartamento de Pili en Costa da Morte. Descubre el interior, exterior y alrededores de este alojamiento turístico en Vimianzo.",
+  keywords:
+    "galería apartamento de Pili, fotos alojamiento Costa da Morte, imágenes hotel Vimianzo, turismo Galicia, Airbnb Costa da Morte",
+  openGraph: {
+    title: "Galería | Apartamento de Pili - Costa da Morte",
+    description:
+      "Descubre las imágenes del Apartamento de Pili, un alojamiento único en Vimianzo, Costa da Morte.",
+    url: "https://apartamentodepili.com/galeria",
+    images: [
+      {
+        url: "https://live.staticflickr.com/65535/54344469040_4930793900_w.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Galería de imágenes del Apartamento de Pili",
+      },
+    ],
   },
-  {
-    src: '/gallery/baño-puerta.jpeg',
-    alt: 'Foto del baño de la puerta en apartamento de Pili',
-    category: 'baño'
-  },
-  {
-    src: '/gallery/baño-ventana.jpeg',
-    alt: 'Foto del baño desde la ventana en apartamento de Pili',
-    category: 'baño'
-  },
-  {
-    src: '/gallery/cocina-comedor-salon.jpeg',
-    alt: 'Foto de la cocina americana en apartamento de Pili',
-    category: ['cocina', 'comedor', 'salon']
-  },
-  {
-    src: '/gallery/cocina-comedor-ventana.jpeg',
-    alt: 'Foto de la cocina americana vista desde la ventana en apartamento de Pili',
-    category: ['cocina', 'comedor']
-  },
-  {
-    src: '/gallery/comedor-salon.jpeg',
-    alt: 'Foto del comedor en apartamento de Pili',
-    category: ['comedor', 'salon']
-  },
-  {
-    src: '/gallery/comedor.jpeg',
-    alt: 'Foto del comedor en apartamento de Pili',
-    category: 'comedor'
-  },
-  {
-    src: '/gallery/habitacion1-vista-puerta.jpeg',
-    alt: 'Foto de la habitación doble vista desde la puerta en apartamento de Pili',
-    category: 'habitacion 1'
-  },
-  {
-    src: '/gallery/habitacion1-vista-ventana.jpeg',
-    alt: 'Foto de la habitación doble vista desde la ventana en apartamento de Pili',
-    category: 'habitacion 1'
-  },
-  {
-    src: '/gallery/habitacion2-frente.jpeg',
-    alt: 'Foto de la habitación vista desde enfrente en apartamento de Pili',
-    category: 'habitacion 2'
-  },
-  {
-    src: '/gallery/habitacion2-ventana.jpeg',
-    alt: 'Foto de la habitación vista desde la ventana en apartamento de Pili',
-    category: 'habitacion 2'
-  },
-  {
-    src: '/gallery/habitacion2-puerta.jpeg',
-    alt: 'Foto de la habitación vista desde la puerta en apartamento de Pili',
-    category: 'habitacion 2'
-  },
-  {
-    src: '/gallery/habitacion3-centro.jpeg',
-    alt: 'Foto de la habitación vista desde enfrente en apartamento de Pili',
-    category: 'habitacion 3'
-  },
-  {
-    src: '/gallery/habitacion3-cerca.jpeg',
-    alt: 'Foto de la habitación vista desde la ventana en apartamento de Pili',
-    category: 'habitacion 3'
-  },
-  {
-    src: '/gallery/habitacion3-puerta.jpeg', 
-    alt: 'Foto de la habitación vista desde la puerta en apartamento de Pili',
-    category: 'habitacion 3'
-  },
-  {
-    src: '/gallery/salon.jpeg',
-    alt: 'Foto del salón en apartamento de Pili', 
-    category: 'salon'
-  },
-]
+};
 
+import GalleryGrid from "./components/GalleryGrid";
 
-const FilterSelect = ({ categories, selectedCategory, onSelect }) => (
-  <Menu as="div" className="relative mb-12 w-full max-w-xs mx-auto">
-    <Menu.Button className="w-full flex items-center justify-between px-6 py-4 font-sans font-medium text-white/90 bg-gray-800 rounded-xl border-2 border-gray-700 hover:border-accent/40 transition-all duration-300">
-      {selectedCategory === "all" ? "Todas las categorías" : selectedCategory}
-      <svg className="w-5 h-5 ml-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </Menu.Button>
-    
-    <Menu.Items className="absolute mt-2 w-full bg-gray-800 border border-gray-700 rounded-xl shadow-2xl z-50 overflow-hidden">
-      {categories.map((category) => (
-        <Menu.Item key={category}>
-          {({ active }) => (
-            <button
-              onClick={() => onSelect(category)}
-              className={`w-full px-6 py-3 text-left font-sans ${
-                active || selectedCategory === category 
-                  ? "bg-accent/10 text-accent" 
-                  : "text-white/80 hover:bg-primary"
-              } transition-colors duration-200`}
-            >
-              {category === "all" ? "Todas las categorías" : category}
-            </button>
-          )}
-        </Menu.Item>
-      ))}
-    </Menu.Items>
-  </Menu>
-);
-
-const ImageModal = ({ image, onClose, onPrev, onNext }) => (
-  <div className="fixed inset-0 bg-black/90 backdrop-blur-lg flex items-center justify-center z-50 p-4">
-    <div className="relative max-w-6xl w-full max-h-[90vh] bg-gray-800 rounded-xl border border-gray-700 shadow-2xl">
-      <button
-        onClick={onClose}
-        className="absolute -top-12 right-0 text-accent hover:text-textMuted transition-colors p-2"
-      >
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <div className="relative h-[75vh] p-8">
-        <Image
-          src={image.src}
-          alt={image.alt || "Selected image"}
-          fill
-          objectFit="contain"
-          priority
-        />
-      </div>
-      {image.description && (
-        <div className="p-6 border-t border-gray-700 bg-primary/50">
-          <p className="font-serif text-center text-accent italic text-lg">
-            {image.description}
-          </p>
-        </div>
-      )}
-    </div>
-  </div>
-);
-
-export default function GalleryComponent() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [filteredGallery, setFilteredGallery] = useState(Gallery);
-
-  useEffect(() => {
-    setFilteredGallery(
-      selectedCategory === "all" 
-        ? Gallery 
-        : Gallery.filter((image) => {
-            const imageCategories = Array.isArray(image.category) 
-              ? image.category 
-              : [image.category];
-            return imageCategories.includes(selectedCategory);
-          })
-    );
-  }, [selectedCategory]);
-
-  const handlePrevImage = () => {
-    const currentIndex = filteredGallery.findIndex(img => img.src === selectedImage.src);
-    const prevIndex = currentIndex === 0 ? filteredGallery.length - 1 : currentIndex - 1;
-    setSelectedImage(filteredGallery[prevIndex]);
-  };
-
-  const handleNextImage = () => {
-    const currentIndex = filteredGallery.findIndex(img => img.src === selectedImage.src);
-    const nextIndex = currentIndex === filteredGallery.length - 1 ? 0 : currentIndex + 1;
-    setSelectedImage(filteredGallery[nextIndex]);
-  };
-
-  const categories = [
-    "all",
-    ...new Set(Gallery.flatMap((image) => 
-      Array.isArray(image.category) ? image.category : [image.category]
-    ))
-  ];
-
+export default function GaleriaPage() {
   return (
     <section className="container mx-auto px-4 py-16">
-      <FilterSelect 
-        categories={categories} 
-        selectedCategory={selectedCategory} 
-        onSelect={setSelectedCategory}
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredGallery.map((image, index) => (
-          <div 
-            key={`${image.src}-${index}`} 
-            className="relative aspect-video overflow-hidden rounded-xl shadow-xl group cursor-pointer hover:shadow-2xl transition-all duration-300"
-            onClick={() => setSelectedImage(image)}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt || "Gallery image"}
-              fill
-              objectFit="cover"
-              priority={index < 6}
-            />
-          </div>
-        ))}
-      </div>
-      {selectedImage && (
-        <ImageModal
-          image={selectedImage}
-          onClose={() => setSelectedImage(null)}
-          onPrev={handlePrevImage}
-          onNext={handleNextImage}
-        />
-      )}
+      <GalleryGrid />
     </section>
   );
 }

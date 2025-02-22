@@ -12,7 +12,7 @@ return (
   <nav className="bg-primary border-b border-secondary relative">
    <div className="container mx-auto px-6"> 
     <div className="flex justify-between items-center h-20"> {/* Título */}
-       <h1 className="text-3xl font-serif font-semibold text-accent tracking-wide"> Apartamento Casa Pili 
+       <h1 className="text-3xl font-serif font-semibold text-accent tracking-wide"> Apartamento de Pili 
        </h1>
           {/* Botón del menú móvil */}
       <button
