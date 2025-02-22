@@ -6,23 +6,23 @@ import Gallery from "../data/Gallery";
 
 const FilterSelect = ({ categories, selectedCategory, onSelect }) => (
   <Menu as="div" className="relative mb-12 w-full max-w-xs mx-auto">
-    <Menu.Button className="w-full flex items-center justify-between px-6 py-4 font-roboto font-medium text-white/90 bg-[#1A1A1A] rounded-xl border-2 border-[#2A2A2A] hover:border-[#C49A6C]/40 transition-all duration-300">
+    <Menu.Button className="w-full flex items-center justify-between px-6 py-4 font-sans font-medium text-white/90 bg-gray-800 rounded-xl border-2 border-gray-700 hover:border-accent/40 transition-all duration-300">
       {selectedCategory === "all" ? "Todas las categorías" : selectedCategory}
-      <svg className="w-5 h-5 ml-2 text-[#C49A6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
+      <svg className="w-5 h-5 ml-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
       </svg>
     </Menu.Button>
     
-    <Menu.Items className="absolute mt-2 w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl shadow-2xl z-50 overflow-hidden">
+    <Menu.Items className="absolute mt-2 w-full bg-gray-800 border border-gray-700 rounded-xl shadow-2xl z-50 overflow-hidden">
       {categories.map((category) => (
         <Menu.Item key={category}>
           {({ active }) => (
             <button
               onClick={() => onSelect(category)}
-              className={`w-full px-6 py-3 text-left font-roboto ${
+              className={`w-full px-6 py-3 text-left font-sans ${
                 active || selectedCategory === category 
-                  ? 'bg-[#C49A6C]/10 text-[#C49A6C]' 
-                  : 'text-white/80 hover:bg-[#0F0F0F]'
+                  ? "bg-accent/10 text-accent" 
+                  : "text-white/80 hover:bg-primary"
               } transition-colors duration-200`}
             >
               {category === "all" ? "Todas las categorías" : category}
@@ -36,27 +36,27 @@ const FilterSelect = ({ categories, selectedCategory, onSelect }) => (
 
 const ImageModal = ({ image, onClose, onPrev, onNext }) => (
   <div className="fixed inset-0 bg-black/90 backdrop-blur-lg flex items-center justify-center z-50 p-4">
-    <div className="relative max-w-6xl w-full max-h-[90vh] bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] shadow-2xl">
+    <div className="relative max-w-6xl w-full max-h-[90vh] bg-gray-800 rounded-xl border border-gray-700 shadow-2xl">
       <button
         onClick={onClose}
-        className="absolute -top-12 right-0 text-[#C49A6C] hover:text-[#E6D6C4] transition-colors p-2"
+        className="absolute -top-12 right-0 text-accent hover:text-textMuted transition-colors p-2"
       >
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       <div className="relative h-[75vh] p-8">
         <Image
           src={image.src}
           alt={image.alt || "Selected image"}
-          layout="fill"
+          fill
           objectFit="contain"
           priority
         />
       </div>
       {image.description && (
-        <div className="p-6 border-t border-[#2A2A2A] bg-[#0F0F0F]/50">
-          <p className="font-playfair-display text-center text-[#C49A6C] italic text-lg">
+        <div className="p-6 border-t border-gray-700 bg-primary/50">
+          <p className="font-serif text-center text-accent italic text-lg">
             {image.description}
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function GalleryComponent() {
             <Image
               src={image.src}
               alt={image.alt || "Gallery image"}
-              layout="fill"
+              fill
               objectFit="cover"
               priority={index < 6}
             />
