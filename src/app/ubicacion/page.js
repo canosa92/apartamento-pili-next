@@ -1,4 +1,4 @@
-deimport React from "react";
+import React from "react";
 import Lugares from "./components/Lugares";
 import { MapPin } from "lucide-react";
 

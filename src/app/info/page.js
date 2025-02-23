@@ -26,7 +26,7 @@ export const metadata = {
 
 const Info = () => {
   return (
-    <div className="bg-primary border-t border-gray-700">
+    <div className=" border-t border-gray-700">
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="flex flex-col items-center mb-16">
           <Home className="w-12 h-12 text-accent mb-4" />
