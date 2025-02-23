@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} bg-primary text-textLight font-sans antialiased`}
+        className={`${inter.variable} ${playfairDisplay.variable} bg-gradient-to-b from-[#2A2A2A] via-[#1F1F1F] to-[#1A1A1A] text-textLight font-sans antialiased`}
       >
         <Navbar />
         <main className="text-textMuted">{children}</main>
