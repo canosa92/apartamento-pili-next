@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import FilterSelect from "./FilterSelect";
 import ImageModal from "./ImageModal";
-import Gallery from "../../data/gallery";
+import Gallery from "@/app/data/gallery";
 
 const GalleryGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
