@@ -15,7 +15,7 @@ export const metadata = {
     url: "https://apartamentodepili.com/ubicacion",
     images: [
       {
-        url: "https://apartamentodepili.com/images/ubicacion.jpg", // Asegúrate de que esta imagen exista
+        url: "https://live.staticflickr.com/65535/54344469040_4930793900_w.jpg", 
         width: 1200,
         height: 630,
         alt: "Ubicación del Apartamento de Pili en Costa da Morte",
