@@ -1,4 +1,4 @@
-import React from "react";
+deimport React from "react";
 import Lugares from "./components/Lugares";
 import { MapPin } from "lucide-react";
 
@@ -26,7 +26,7 @@ export const metadata = {
 
 const Ubicacion = () => {
   return (
-    <div className="min-h-screen bg-primary border-t border-gray-700">
+    <div className="min-h-screen border-t border-gray-700">
       <div className="container mx-auto px-2 py-20 max-w-6xl">
         {/* Hero Section */}
         <div className="text-center mb-16">
